@@ -1,0 +1,26 @@
+#!/bin/sh
+# Reusa PHP local ou uma imagem Docker ja instalada; nunca baixa automaticamente.
+set -eu
+project_dir=$(CDPATH= cd -- "$(dirname -- "$0")/.." && pwd)
+if command -v php >/dev/null 2>&1; then
+    cd "$project_dir"
+    exec php "$@"
+fi
+if command -v docker >/dev/null 2>&1; then
+    # O volume externo nem sempre e compartilhado com a VM do Docker.
+    # A copia efemera dispensa bind mount e nao altera o projeto durante testes.
+    docker_endpoint=$(docker context inspect --format '{{.Endpoints.docker.Host}}')
+    case "${DOCKER_HOST:-$docker_endpoint}" in
+        unix://*) ;;
+        *) echo 'Use PHP local: este comando aceita apenas um daemon Docker local.' >&2; exit 1 ;;
+    esac
+    cd "$project_dir"
+    COPYFILE_DISABLE=1 tar --format=ustar -cf - --exclude='.git' --exclude='.remember' \
+        --exclude='storage' --exclude='._*' --exclude='.DS_Store' . |
+        docker run --rm -i --pull=never --network none \
+            "${CROSSHUB_PHP_IMAGE:-php:8.3-cli-alpine}" sh -c \
+            'mkdir /app && tar -xf - -C /app && mkdir -p /app/storage/logs && cd /app && exec php "$@"' sh "$@"
+    exit $?
+fi
+echo 'PHP nao encontrado. Requer PHP com curl, json, mbstring e ctype; ou Docker com imagem PHP ja instalada.' >&2
+exit 1

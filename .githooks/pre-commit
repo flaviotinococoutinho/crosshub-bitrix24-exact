@@ -1,0 +1,4 @@
+#!/bin/sh
+set -eu
+project_dir=$(git rev-parse --show-toplevel)
+exec python3 "$project_dir/tools/check-secrets.py" --staged --identity

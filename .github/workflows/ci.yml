@@ -1,0 +1,52 @@
+name: Validar integração
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  security:
+    name: Arquivos privados e histórico
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Auditar arquivos versionados
+        run: |
+          python3 tools/check-secrets.py --staged
+          python3 tools/check-secrets.py --history
+      - name: Verificar proteção dos commits
+        run: python3 tests/test_secret_guard.py
+
+  php:
+    name: PHP ${{ matrix.version }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - version: '8.3'
+            image: php:8.3-cli-alpine@sha256:3c61b92c1c3c024fe6ff4022b5ef8814b9beead8c74e8a5344318b5f43543a47
+          - version: '8.4'
+            image: php:8.4-cli-alpine@sha256:de082dce8399ed408c47a303ac7f126de659088b403d791cefc81a7b707ea0c1
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Verificar sintaxe e contratos sem rede externa
+        env:
+          PHP_IMAGE: ${{ matrix.image }}
+        run: |
+          docker run --rm --network none --read-only \
+            --tmpfs /tmp:rw,nosuid,nodev \
+            --volume "$GITHUB_WORKSPACE:/app:ro" --workdir /app \
+            "$PHP_IMAGE" sh -c 'php tools/lint.php && php tests/run.php'
