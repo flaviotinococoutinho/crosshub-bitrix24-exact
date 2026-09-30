@@ -1,0 +1,24 @@
+{
+  "name": "flaviotinococoutinho/crosshub-bitrix24-exact",
+  "description": "Integração entre Bitrix24 e Exact Sales por webhooks, com portas e adaptadores em PHP",
+  "type": "project",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Flávio Tinoco"
+    }
+  ],
+  "require": {
+    "php": ">=5.6",
+    "ext-curl": "*",
+    "ext-json": "*",
+    "ext-mbstring": "*",
+    "ext-ctype": "*"
+  },
+  "scripts": {
+    "test": "php tests/run.php",
+    "lint": "php tools/lint.php",
+    "doctor": "php tools/doctor.php"
+  },
+  "homepage": "https://github.com/flaviotinococoutinho/crosshub-bitrix24-exact"
+}

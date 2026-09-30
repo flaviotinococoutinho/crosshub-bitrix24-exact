@@ -1,0 +1,1643 @@
+{
+    "search-deal-found": {
+        "result": {
+            "ID": "42"
+        },
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.list",
+                "body": "filter%5BUF_CRM_5C90EE1E02085%5D=123&select%5B0%5D=ID&select%5B1%5D=TITLE&select%5B2%5D=STAGE_ID&select%5B3%5D=CONTACT_ID&select%5B4%5D=UF_%2A",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "search-contact-found": {
+        "result": {
+            "ID": "21"
+        },
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.contact.list",
+                "body": "order%5BDATE_CREATE%5D=ASC&filter%5BEMAIL%5D=person%40example.invalid&select%5B0%5D=ID&select%5B1%5D=NAME&select%5B2%5D=LAST_NAME&select%5B3%5D=SOURCE_ID&select%5B4%5D=STAGE_ID&select%5B5%5D=TYPE_ID&select%5B6%5D=CONTACT_ID&select%5B7%5D=UF_%2A",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "search-deal-empty": {
+        "result": [],
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.list",
+                "body": "filter%5BID%5D=123&select%5B0%5D=ID&select%5B1%5D=TITLE&select%5B2%5D=STAGE_ID&select%5B3%5D=CONTACT_ID&select%5B4%5D=UF_%2A",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "search-contact-error": {
+        "result": "failure",
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.contact.list",
+                "body": "order%5BDATE_CREATE%5D=ASC&filter%5BID%5D=123&select%5B0%5D=ID&select%5B1%5D=NAME&select%5B2%5D=LAST_NAME&select%5B3%5D=SOURCE_ID&select%5B4%5D=STAGE_ID&select%5B5%5D=TYPE_ID&select%5B6%5D=CONTACT_ID&select%5B7%5D=UF_%2A",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-contact": {
+        "result": 21,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.contact.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BNAME%5D=Pessoa&fields%5BLAST_NAME%5D=Exemplo&fields%5BPHONE%5D%5B0%5D%5BVALUE%5D=111&fields%5BPHONE%5D%5B0%5D%5BVALUE_TYPE%5D=HOME&fields%5BPHONE%5D%5B1%5D%5BVALUE%5D=222&fields%5BPHONE%5D%5B1%5D%5BVALUE_TYPE%5D=WORK&fields%5BEMAIL%5D%5B0%5D%5BVALUE%5D=person%40example.invalid&fields%5BEMAIL%5D%5B0%5D%5BVALUE_TYPE%5D=HOME&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BTYPE_ID%5D=35&fields%5BCURRENCY_ID%5D=BRL&fields%5BCOMMENTS%5D=notes&fields%5BUF_CRM_1554913746%5D=document&fields%5BUF_CRM_5C77DFD990792%5D=2953&fields%5BUF_CRM_5C90EE1DD35B5%5D=123&fields%5BUF_CRM_5C77DFD74733C%5D=code&fields%5BUF_CRM_5C77DFD6E4F62%5D=2285&fields%5BUF_CRM_5C77DFD99B758%5D=pre&fields%5BUF_CRM_5C77DFD9A236E%5D=feedback&fields%5BUF_CRM_5C8C3B71AB533%5D=public&fields%5BUF_CRM_5C77DFD9A9603%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-contact-empty-phones": {
+        "result": 21,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.contact.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BNAME%5D=Pessoa&fields%5BLAST_NAME%5D=Exemplo&fields%5BPHONE%5D=&fields%5BEMAIL%5D%5B0%5D%5BVALUE%5D=person%40example.invalid&fields%5BEMAIL%5D%5B0%5D%5BVALUE_TYPE%5D=HOME&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BTYPE_ID%5D=35&fields%5BCURRENCY_ID%5D=BRL&fields%5BCOMMENTS%5D=&fields%5BUF_CRM_1554913746%5D=&fields%5BUF_CRM_5C77DFD990792%5D=2953&fields%5BUF_CRM_5C90EE1DD35B5%5D=&fields%5BUF_CRM_5C77DFD74733C%5D=&fields%5BUF_CRM_5C77DFD6E4F62%5D=7197&fields%5BUF_CRM_5C77DFD99B758%5D=&fields%5BUF_CRM_5C77DFD9A236E%5D=&fields%5BUF_CRM_5C8C3B71AB533%5D=&fields%5BUF_CRM_5C77DFD9A9603%5D=&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-lead": {
+        "result": "12",
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.lead.update.json",
+                "body": "id=12&fields%5BNAME%5D=Pessoa&fields%5BCOMPANY_TITLE%5D=Empresa&fields%5BSTATUS_ID%5D=CONVERTED&fields%5BOPENED%5D=Y&fields%5BUF_CRM_1551125599%5D=feedback&fields%5BUF_CRM_1552689459%5D=public&fields%5BUF_CRM_1553011410%5D=vendor%40example.invalid&fields%5BUF_CRM_1549555198%5D=239&fields%5BUF_CRM_1553011368%08%5D=Ag%C3%AAncia+Alfa&fields%5BUF_CRM_1551125244%5D=pre&fields%5BUF_CRM_1552961611%5D=123&fields%5BCOMMENTS%5D=description&fields%5BPHONE%5D%5B0%5D%5BVALUE%5D=111&fields%5BPHONE%5D%5B0%5D%5BVALUE_TYPE%5D=HOME&fields%5BPHONE%5D%5B1%5D%5BVALUE%5D=222&fields%5BPHONE%5D%5B1%5D%5BVALUE_TYPE%5D=WORK&fields%5BUF_CRM_1551125807%5D=2020-01-02&fields%5BUF_CRM_1551375246%5D=ref&fields%5BEMAIL%5D%5B0%5D%5BVALUE%5D=person%40example.invalid&fields%5BEMAIL%5D%5B0%5D%5BVALUE_TYPE%5D=HOME&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "discard-lead": {
+        "result": "12",
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.lead.update.json",
+                "body": "id=12&fields%5BSTATUS_ID%5D=5&fields%5BOPENED%5D=Y&fields%5BUF_CRM_1552961611%5D=123&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao alfa-event.schedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=23&fields%5BSTAGE_ID%5D=C23%3A2&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao alfa-event.schedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C23%3A2&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao alfa-event.reschedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=23&fields%5BSTAGE_ID%5D=C23%3A2&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao alfa-event.reschedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C23%3A2&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao alfa-event.leadwon": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=23&fields%5BSTAGE_ID%5D=C23%3AWON&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao alfa-event.leadwon": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C23%3AWON&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao alfa-event.cancelschedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=23&fields%5BSTAGE_ID%5D=C23%3A4&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao alfa-event.cancelschedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C23%3A4&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao alfa-event.leadlost": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=23&fields%5BSTAGE_ID%5D=C23%3A4&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao alfa-event.leadlost": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C23%3A4&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao zeta-event.schedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=81&fields%5BSTAGE_ID%5D=C81%3APREPARATION&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao zeta-event.schedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C81%3APREPARATION&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao zeta-event.reschedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=81&fields%5BSTAGE_ID%5D=C81%3APREPARATION&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao zeta-event.reschedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C81%3APREPARATION&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao zeta-event.leadwon": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=81&fields%5BSTAGE_ID%5D=C81%3AWON&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao zeta-event.leadwon": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C81%3AWON&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao zeta-event.cancelschedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=81&fields%5BSTAGE_ID%5D=C81%3ALOSE&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao zeta-event.cancelschedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C81%3ALOSE&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao zeta-event.leadlost": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=81&fields%5BSTAGE_ID%5D=C81%3ALOSE&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao zeta-event.leadlost": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C81%3ALOSE&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao gama-event.schedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=75&fields%5BSTAGE_ID%5D=C75%3APREPARATION&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao gama-event.schedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C75%3APREPARATION&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao gama-event.reschedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=75&fields%5BSTAGE_ID%5D=C75%3APREPARATION&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao gama-event.reschedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C75%3APREPARATION&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao gama-event.leadwon": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=75&fields%5BSTAGE_ID%5D=C75%3AWON&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao gama-event.leadwon": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C75%3AWON&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao gama-event.cancelschedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=75&fields%5BSTAGE_ID%5D=C75%3ALOSE&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao gama-event.cancelschedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C75%3ALOSE&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao gama-event.leadlost": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=75&fields%5BSTAGE_ID%5D=C75%3ALOSE&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao gama-event.leadlost": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C75%3ALOSE&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao epsilon-event.schedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=79&fields%5BSTAGE_ID%5D=C79%3APREPARATION&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao epsilon-event.schedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C79%3APREPARATION&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao epsilon-event.reschedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=79&fields%5BSTAGE_ID%5D=C79%3APREPARATION&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao epsilon-event.reschedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C79%3APREPARATION&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao epsilon-event.leadwon": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=79&fields%5BSTAGE_ID%5D=C79%3AWON&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao epsilon-event.leadwon": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C79%3AWON&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao epsilon-event.cancelschedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=79&fields%5BSTAGE_ID%5D=C79%3ALOSE&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao epsilon-event.cancelschedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C79%3ALOSE&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao epsilon-event.leadlost": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=79&fields%5BSTAGE_ID%5D=C79%3ALOSE&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao epsilon-event.leadlost": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C79%3ALOSE&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao beta-event.schedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=73&fields%5BSTAGE_ID%5D=C73%3APREPARATION&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao beta-event.schedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C73%3APREPARATION&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao beta-event.reschedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=73&fields%5BSTAGE_ID%5D=C73%3APREPARATION&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao beta-event.reschedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C73%3APREPARATION&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao beta-event.leadwon": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=73&fields%5BSTAGE_ID%5D=C73%3AWON&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao beta-event.leadwon": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C73%3AWON&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao beta-event.cancelschedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=73&fields%5BSTAGE_ID%5D=C73%3ALOSE&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao beta-event.cancelschedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C73%3ALOSE&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao beta-event.leadlost": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=73&fields%5BSTAGE_ID%5D=C73%3ALOSE&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao beta-event.leadlost": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C73%3ALOSE&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao delta-event.schedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=77&fields%5BSTAGE_ID%5D=C77%3APREPARATION&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao delta-event.schedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C77%3APREPARATION&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao delta-event.reschedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=77&fields%5BSTAGE_ID%5D=C77%3APREPARATION&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao delta-event.reschedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C77%3APREPARATION&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao delta-event.leadwon": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=77&fields%5BSTAGE_ID%5D=C77%3AWON&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao delta-event.leadwon": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C77%3AWON&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao delta-event.cancelschedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=77&fields%5BSTAGE_ID%5D=C77%3ALOSE&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao delta-event.cancelschedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C77%3ALOSE&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao delta-event.leadlost": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=77&fields%5BSTAGE_ID%5D=C77%3ALOSE&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao delta-event.leadlost": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C77%3ALOSE&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao especial-event.schedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=121&fields%5BSTAGE_ID%5D=C121%3ANEW&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao especial-event.schedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C121%3ANEW&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao especial-event.reschedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=121&fields%5BSTAGE_ID%5D=C121%3ANEW&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao especial-event.reschedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C121%3ANEW&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao especial-event.leadwon": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=121&fields%5BSTAGE_ID%5D=C121%3AWON&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao especial-event.leadwon": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C121%3AWON&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao especial-event.cancelschedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=121&fields%5BSTAGE_ID%5D=C121%3ALOSE&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao especial-event.cancelschedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C121%3ALOSE&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-locacao especial-event.leadlost": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=121&fields%5BSTAGE_ID%5D=C121%3ALOSE&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-locacao especial-event.leadlost": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C121%3ALOSE&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-unknown-event.schedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=129&fields%5BSTAGE_ID%5D=C129%3ANEW&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-unknown-event.schedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C129%3ANEW&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-unknown-event.reschedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=129&fields%5BSTAGE_ID%5D=C129%3ANEW&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-unknown-event.reschedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C129%3ANEW&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-unknown-event.leadwon": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=129&fields%5BSTAGE_ID%5D=C129%3ANEW&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-unknown-event.leadwon": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C129%3AWON&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-unknown-event.cancelschedule": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=129&fields%5BSTAGE_ID%5D=C129%3ANEW&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-unknown-event.cancelschedule": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C129%3ALOSE&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "create-deal-unknown-event.leadlost": {
+        "result": 42,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.add.json",
+                "body": "fields%5BTITLE%5D=Pessoa+Exemplo&fields%5BOPENED%5D=Y&fields%5BEXPORT%5D=Y&fields%5BCATEGORY_ID%5D=129&fields%5BSTAGE_ID%5D=C129%3ANEW&fields%5BCOMMENTS%5D=notes&fields%5BCONTACT_IDS%5D%5B0%5D=21&fields%5BUF_CRM_5C6D511934A76%5D=7185&fields%5BUF_CRM_5C7004A10252B%5D=2273&fields%5BUF_CRM_5C90EE1E02085%5D=123&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&fields%5BUF_CRM_5C782B23B6106%5D=code&fields%5BUF_CRM_5C77DFD9BFF43%5D=feedback&fields%5BUF_CRM_5C8C3B71D8BC4%5D=public&fields%5BUF_CRM_5C77DFD9B5629%5D=pre&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "update-deal-unknown-event.leadlost": {
+        "result": true,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/crm.deal.update.json",
+                "body": "id=42&fields%5BSTAGE_ID%5D=C129%3ALOSE&fields%5BUF_CRM_5C77DFD9C66B6%5D=2020-01-02&params%5BREGISTER_SONET_EVENT%5D=Y",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "list-event": {
+        "result": 99,
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/lists.element.add.json",
+                "body": "IBLOCK_TYPE_ID=lists&IBLOCK_ID=33&ELEMENT_CODE=person%40example.invalid+<event-clock>&FIELDS%5BNAME%5D=person%40example.invalid+<event-clock>&FIELDS%5BPROPERTY_113%5D=155&FIELDS%5BPROPERTY_111%5D=SOURCE&FIELDS%5BPROPERTY_115%5D=message",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "list-event-error": {
+        "result": "failure",
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://bitrix.invalid/rest/1/test/lists.element.add.json",
+                "body": "IBLOCK_TYPE_ID=lists&IBLOCK_ID=33&ELEMENT_CODE=+<event-clock>&FIELDS%5BNAME%5D=+<event-clock>&FIELDS%5BPROPERTY_113%5D=153&FIELDS%5BPROPERTY_111%5D=SCRIPT&FIELDS%5BPROPERTY_115%5D=VAZIO",
+                "headers": [],
+                "verify_peer": false
+            }
+        ]
+    },
+    "exact-add-Aluguel": {
+        "result": "{\"success\":true,\"id\":123}",
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://api.spotter.exactsales.com.br/api/v2/leads",
+                "body": {
+                    "Empresa": "Empresa",
+                    "Contatos": [
+                        {
+                            "Email": "person@example.invalid",
+                            "Nome": "Pessoa",
+                            "Tel1": "111",
+                            "Tel2": "222"
+                        }
+                    ],
+                    "Obs": "notes",
+                    "Origem": {
+                        "value": ""
+                    },
+                    "SubOrigem": {
+                        "value": ""
+                    },
+                    "CamposPersonalizados": [
+                        {
+                            "id": "_idbitrix",
+                            "value": "12"
+                        },
+                        {
+                            "id": "_codigoanuncio",
+                            "value": "code"
+                        }
+                    ]
+                },
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-update-Aluguel": {
+        "result": "{\"success\":true}",
+        "requests": [
+            {
+                "method": "PUT",
+                "url": "https://api.exactsales.com.br/v2/editarlead",
+                "body": {
+                    "Id": "123",
+                    "Contatos": [
+                        {
+                            "Tel1": "111",
+                            "Tel2": "222"
+                        }
+                    ],
+                    "Empresa": "Empresa",
+                    "Obs": "notes",
+                    "Origem": {
+                        "value": ""
+                    },
+                    "SubOrigem": {
+                        "value": ""
+                    },
+                    "CamposPersonalizados": [
+                        {
+                            "id": "_idbitrix",
+                            "value": "12"
+                        },
+                        {
+                            "id": "_codigoanuncio",
+                            "value": "code"
+                        }
+                    ]
+                },
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-get-Aluguel": {
+        "result": "{\"Etapa\":\"Entrada\"}",
+        "requests": [
+            {
+                "method": "GET",
+                "url": "https://api.exactsales.com.br/v2/listarlead?id=123",
+                "body": null,
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-recover-Aluguel": {
+        "result": "{\"success\":true}",
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://api.exactsales.com.br/v2/recuperarLead",
+                "body": {
+                    "id": "123"
+                },
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-add-Vendas": {
+        "result": "{\"success\":true,\"id\":123}",
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://api.spotter.exactsales.com.br/api/v2/leads",
+                "body": {
+                    "Empresa": "Empresa",
+                    "Contatos": [
+                        {
+                            "Email": "person@example.invalid",
+                            "Nome": "Pessoa",
+                            "Tel1": "111",
+                            "Tel2": "222"
+                        }
+                    ],
+                    "Obs": "notes",
+                    "Origem": {
+                        "value": ""
+                    },
+                    "SubOrigem": {
+                        "value": ""
+                    },
+                    "CamposPersonalizados": [
+                        {
+                            "id": "_idbitrix",
+                            "value": "12"
+                        },
+                        {
+                            "id": "_codigoanuncio",
+                            "value": "code"
+                        }
+                    ]
+                },
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token-vendas"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-update-Vendas": {
+        "result": "{\"success\":true}",
+        "requests": [
+            {
+                "method": "PUT",
+                "url": "https://api.exactsales.com.br/v2/editarlead",
+                "body": {
+                    "Id": "123",
+                    "Contatos": [
+                        {
+                            "Tel1": "111",
+                            "Tel2": "222"
+                        }
+                    ],
+                    "Empresa": "Empresa",
+                    "Obs": "notes",
+                    "Origem": {
+                        "value": ""
+                    },
+                    "SubOrigem": {
+                        "value": ""
+                    },
+                    "CamposPersonalizados": [
+                        {
+                            "id": "_idbitrix",
+                            "value": "12"
+                        },
+                        {
+                            "id": "_codigoanuncio",
+                            "value": "code"
+                        }
+                    ]
+                },
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token-vendas"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-get-Vendas": {
+        "result": "{\"Etapa\":\"Entrada\"}",
+        "requests": [
+            {
+                "method": "GET",
+                "url": "https://api.exactsales.com.br/v2/listarlead?id=123",
+                "body": null,
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token-vendas"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-recover-Vendas": {
+        "result": "{\"success\":true}",
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://api.exactsales.com.br/v2/recuperarLead",
+                "body": {
+                    "id": "123"
+                },
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token-vendas"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-add-Captacao Locacao": {
+        "result": "{\"success\":true,\"id\":123}",
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://api.spotter.exactsales.com.br/api/v2/leads",
+                "body": {
+                    "Empresa": "Empresa",
+                    "Contatos": [
+                        {
+                            "Email": "person@example.invalid",
+                            "Nome": "Pessoa",
+                            "Tel1": "111",
+                            "Tel2": "222"
+                        }
+                    ],
+                    "Obs": "notes",
+                    "Origem": {
+                        "value": ""
+                    },
+                    "CamposPersonalizados": [
+                        {
+                            "id": "_idbitrix",
+                            "value": "12"
+                        },
+                        {
+                            "id": "_codigoanuncio",
+                            "value": "code"
+                        }
+                    ]
+                },
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token-captacao-locacao"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-update-Captacao Locacao": {
+        "result": "{\"success\":true}",
+        "requests": [
+            {
+                "method": "PUT",
+                "url": "https://api.exactsales.com.br/v2/editarlead",
+                "body": {
+                    "Id": "123",
+                    "Contatos": [
+                        {
+                            "Tel1": "111",
+                            "Tel2": "222"
+                        }
+                    ],
+                    "Empresa": "Empresa",
+                    "Obs": "notes",
+                    "Origem": {
+                        "value": ""
+                    },
+                    "CamposPersonalizados": [
+                        {
+                            "id": "_idbitrix",
+                            "value": "12"
+                        },
+                        {
+                            "id": "_codigoanuncio",
+                            "value": "code"
+                        }
+                    ]
+                },
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token-captacao-locacao"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-get-Captacao Locacao": {
+        "result": "{\"Etapa\":\"Entrada\"}",
+        "requests": [
+            {
+                "method": "GET",
+                "url": "https://api.exactsales.com.br/v2/listarlead?id=123",
+                "body": null,
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token-captacao-locacao"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-recover-Captacao Locacao": {
+        "result": "{\"success\":true}",
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://api.exactsales.com.br/v2/recuperarLead",
+                "body": {
+                    "id": "123"
+                },
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token-captacao-locacao"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-add-Captacao Vendas": {
+        "result": "{\"success\":true,\"id\":123}",
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://api.spotter.exactsales.com.br/api/v2/leads",
+                "body": {
+                    "Empresa": "Empresa",
+                    "Contatos": [
+                        {
+                            "Email": "person@example.invalid",
+                            "Nome": "Pessoa",
+                            "Tel1": "111",
+                            "Tel2": "222"
+                        }
+                    ],
+                    "Obs": "notes",
+                    "Origem": {
+                        "value": ""
+                    },
+                    "CamposPersonalizados": [
+                        {
+                            "id": "_idbitrix",
+                            "value": "12"
+                        },
+                        {
+                            "id": "_codigoanuncio",
+                            "value": "code"
+                        }
+                    ]
+                },
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token-captacao-locacao"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-update-Captacao Vendas": {
+        "result": "{\"success\":true}",
+        "requests": [
+            {
+                "method": "PUT",
+                "url": "https://api.exactsales.com.br/v2/editarlead",
+                "body": {
+                    "Id": "123",
+                    "Contatos": [
+                        {
+                            "Tel1": "111",
+                            "Tel2": "222"
+                        }
+                    ],
+                    "Empresa": "Empresa",
+                    "Obs": "notes",
+                    "Origem": {
+                        "value": ""
+                    },
+                    "CamposPersonalizados": [
+                        {
+                            "id": "_idbitrix",
+                            "value": "12"
+                        },
+                        {
+                            "id": "_codigoanuncio",
+                            "value": "code"
+                        }
+                    ]
+                },
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token-captacao-locacao"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-get-Captacao Vendas": {
+        "result": "{\"Etapa\":\"Entrada\"}",
+        "requests": [
+            {
+                "method": "GET",
+                "url": "https://api.exactsales.com.br/v2/listarlead?id=123",
+                "body": null,
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token-captacao-locacao"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-recover-Captacao Vendas": {
+        "result": "{\"success\":true}",
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://api.exactsales.com.br/v2/recuperarLead",
+                "body": {
+                    "id": "123"
+                },
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token-captacao-locacao"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-add-Aluguel_Especial": {
+        "result": "{\"success\":true,\"id\":123}",
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://api.spotter.exactsales.com.br/api/v2/leads",
+                "body": {
+                    "Empresa": "Empresa",
+                    "Contatos": [
+                        {
+                            "Email": "person@example.invalid",
+                            "Nome": "Pessoa",
+                            "Tel1": "111",
+                            "Tel2": "222"
+                        }
+                    ],
+                    "Obs": "notes",
+                    "Origem": {
+                        "value": ""
+                    },
+                    "CamposPersonalizados": [
+                        {
+                            "id": "_idbitrixespecial",
+                            "value": "12"
+                        },
+                        {
+                            "id": "_codigodoimovel",
+                            "value": "code"
+                        }
+                    ]
+                },
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token-aluguel-especial"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-update-Aluguel_Especial": {
+        "result": "{\"success\":true}",
+        "requests": [
+            {
+                "method": "PUT",
+                "url": "https://api.exactsales.com.br/v2/editarlead",
+                "body": {
+                    "Id": "123",
+                    "Contatos": [
+                        {
+                            "Tel1": "111",
+                            "Tel2": "222"
+                        }
+                    ],
+                    "Empresa": "Empresa",
+                    "Obs": "notes",
+                    "Origem": {
+                        "value": ""
+                    },
+                    "CamposPersonalizados": [
+                        {
+                            "id": "_idbitrixespecial",
+                            "value": "12"
+                        },
+                        {
+                            "id": "_codigoanuncio",
+                            "value": "code"
+                        }
+                    ]
+                },
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token-aluguel-especial"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-get-Aluguel_Especial": {
+        "result": "{\"Etapa\":\"Entrada\"}",
+        "requests": [
+            {
+                "method": "GET",
+                "url": "https://api.exactsales.com.br/v2/listarlead?id=123",
+                "body": null,
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token-aluguel-especial"
+                ],
+                "verify_peer": true
+            }
+        ]
+    },
+    "exact-recover-Aluguel_Especial": {
+        "result": "{\"success\":true}",
+        "requests": [
+            {
+                "method": "POST",
+                "url": "https://api.exactsales.com.br/v2/recuperarLead",
+                "body": {
+                    "id": "123"
+                },
+                "headers": [
+                    "Content-Type: application/json",
+                    "token_exact:test-exact-token-aluguel-especial"
+                ],
+                "verify_peer": true
+            }
+        ]
+    }
+}
