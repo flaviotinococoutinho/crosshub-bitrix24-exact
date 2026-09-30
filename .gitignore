@@ -1,0 +1,40 @@
+# Credenciais e configuracao local
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+auth.json
+config/*.local.*
+
+# Dados operacionais, historico e backups
+/storage/*
+!/storage/.gitkeep
+!/storage/.htaccess
+*.log
+*.log.*
+**/log*.txt
+**/bck*.txt
+**/BackupLogs/
+/Log novo/
+*.bak
+*.backup
+*.zip
+*.tar
+*.tar.gz
+*.sql
+
+# Dependencias e arquivos da maquina
+/vendor/
+/.remember/
+/.idea/
+/.vscode/
+.DS_Store
+._*
+__pycache__/
+*.pyc
+
+# Artefatos de verificacao
+/coverage/
+/.phpunit.cache/
+/tests/.baseline-source/
