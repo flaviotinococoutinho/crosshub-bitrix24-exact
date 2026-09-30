@@ -17,7 +17,7 @@ python3 tools/check-secrets.py --staged
 python3 tools/check-secrets.py --history
 ```
 
-A segunda verificação procura o conteúdo também nos commits anteriores alcançáveis pelas referências locais e confere os e-mails de autor, committer e autor de tags. O hook também verifica a identidade do próximo commit. Use o e-mail `noreply` fornecido pelo GitHub; o endereço automático do GitHub e identidades fictícias em `example.invalid` são aceitos para CI e testes. Remover uma credencial do arquivo atual não a remove do histórico. A CI repete as verificações sem receber o `.env` real.
+A segunda verificação procura o conteúdo também nos commits anteriores alcançáveis pelas referências locais e confere os e-mails de autor, committer e autor de tags. O hook também verifica a identidade do próximo commit. Nas [configurações de e-mail do GitHub](https://github.com/settings/emails), ative `Keep my email addresses private` para que edições, merges e commits de teste de PR criados pelo serviço também usem noreply. Use o e-mail `noreply` fornecido pelo GitHub; o endereço automático do GitHub e identidades fictícias em `example.invalid` são aceitos para CI e testes. Remover uma credencial do arquivo atual não a remove do histórico. A CI repete as verificações sem receber o `.env` real.
 
 O scanner não reconhece todo tipo de dado privado. A revisão manual continua necessária, incluindo nomes comerciais, dados pessoais, mensagens e anotações, descrições de PR, anexos e artefatos. A limpeza de branches e tags também não garante a remoção de referências internas de PR ou de visualizações em cache no GitHub.
 
