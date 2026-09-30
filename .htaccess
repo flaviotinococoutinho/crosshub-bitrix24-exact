@@ -1,0 +1,13 @@
+# Apache: nao publicar configuracao, backups, metadados ou ferramentas.
+<IfModule mod_alias.c>
+    RedirectMatch 404 "(^|/)\."
+</IfModule>
+<FilesMatch "(^\.|\.(log|txt|bak|backup|json|md|ya?ml|lock|key|pem)$|^(autoload|bootstrap)\.php$)">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
