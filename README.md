@@ -1,14 +1,14 @@
-# CrossHub — Bitrix24 e Exact
+# CrossHub: Bitrix24 e Exact
 
 [![Validar integração](https://github.com/flaviotinococoutinho/crosshub-bitrix24-exact/actions/workflows/ci.yml/badge.svg)](https://github.com/flaviotinococoutinho/crosshub-bitrix24-exact/actions/workflows/ci.yml)
 
-Integração entre **Bitrix24 e Exact Sales**, desenvolvida em PHP. O CrossHub recebe webhooks, traduz os dados de cada CRM e coordena a criação, consulta e atualização de leads, contatos e negócios.
+Integração em PHP entre Bitrix24 e Exact Sales. O CrossHub recebe webhooks, traduz os dados de cada CRM e coordena a criação, consulta e atualização de leads, contatos e negócios.
 
 O projeto usa portas e adaptadores para separar os fluxos comerciais do transporte HTTP e dos logs. A configuração vem do ambiente, e os testes verificam as requisições sem acessar os CRMs. Mantido por **Flávio Tinoco**.
 
 ## O que a integração faz
 
-Integração, aqui, é a tradução de um evento de uma ferramenta em consultas e alterações na outra. Cada CRM mantém seus próprios IDs e regras; o CrossHub faz a correspondência entre eles.
+Cada CRM mantém seus próprios IDs e regras. O CrossHub traduz os eventos recebidos em consultas e alterações no outro CRM.
 
 | Entrada | Fluxo |
 |---|---|
@@ -36,7 +36,7 @@ docs/                         Integração, arquitetura, operação e versões
 storage/                      Apenas marcadores; dados gerados fora do Git
 ```
 
-Usei ports and adapters nas fronteiras de HTTP e logs, dependências explícitas e um vocabulário comum para lead, contato, negócio, conta e evento. Object Calisthenics e os 12 fatores orientam as escolhas que cabem neste tamanho de projeto. Mantive a composição manual, sem framework ou dependências de terceiros. As decisões e concessões estão em [Arquitetura](docs/ARQUITETURA.md).
+A composição das dependências é manual, sem framework ou dependências de terceiros. Portas HTTP e de logs permitem substituir os efeitos externos nos testes. As decisões e concessões estão em [Arquitetura](docs/ARQUITETURA.md).
 
 ## Validar localmente
 
@@ -82,3 +82,4 @@ Os nomes de contas, unidades, regiões e canais específicos usam exemplos gené
 `v0.1.0-rc.1` identifica uma versão candidata à revisão. Os testes verificam os cenários documentados; a homologação das APIs e da configuração de uma instalação depende de validação com os CRMs em ambiente controlado.
 
 Código mantido como proprietário, conforme `composer.json`. Não há concessão de licença de uso aberto.
+
