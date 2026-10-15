@@ -1,6 +1,6 @@
 # Arquitetura
 
-Quero manter esta integração pequena e compreensível. Separei as decisões do fluxo comercial dos efeitos de rede e de escrita, mantendo visíveis os contratos herdados dos CRMs.
+A arquitetura separa as decisões do fluxo comercial dos efeitos de rede e de escrita. Os clientes de integração preservam os contratos herdados dos CRMs.
 
 ## Caminho das dependências
 
@@ -19,7 +19,7 @@ flowchart LR
     M --> D[Arquivo circular / stderr]
 ```
 
-As setas mostram o caminho de uma execução. No código, os clientes recebem as interfaces das portas. O `bootstrap.php` e a `Application/Factory` escolhem e montam os adaptadores concretos.
+As setas mostram o caminho de uma execução. No código, os clientes recebem as interfaces das portas. `bootstrap.php` e `src/Application/Factory.php` escolhem e montam os adaptadores concretos.
 
 | Parte | Responsabilidade | Fronteira |
 |---|---|---|
@@ -75,3 +75,4 @@ Dos 12 fatores, apliquei [configuração por ambiente](https://12factor.net/conf
 O processamento é síncrono e os contratos de entrada dependem dos mapeamentos da instalação. Não há persistência própria para idempotência, fila, política automática de repetição ou validação própria de assinatura dos webhooks. A autenticação e a exposição do endpoint precisam ser avaliadas no ambiente de implantação.
 
 Os testes substituem a rede por gravação de requisições e respostas programadas. Testes de cURL e do roteador usam servidores locais. Isso permite verificar o contrato conhecido, mas não comprova o comportamento atual das APIs em produção.
+

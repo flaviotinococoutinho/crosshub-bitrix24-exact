@@ -15,11 +15,11 @@ Os parâmetros incluem identificação do lead (`id`), pessoa e empresa (`nome`,
 5. Se a criação não teve sucesso e o lead já está em uma das etapas previstas, descarta o lead Bitrix correspondente conforme a regra do fluxo.
 6. Registra o resultado na lista do Bitrix e no destino de logs configurado.
 
-Os nomes de etapas e as condições exatas ficam em `Application/BitrixWebhook.php`. Esse fluxo não faz uma atualização genérica para qualquer resposta ou etapa recebida.
+Os nomes de etapas e as condições exatas ficam em [`src/Application/BitrixWebhook.php`](../src/Application/BitrixWebhook.php). Esse fluxo não faz uma atualização genérica para qualquer resposta ou etapa recebida.
 
 ## Exact → Bitrix24
 
-Entrada: `exactincoming/index.php`. O script lê `tipo` na query e o JSON do corpo HTTP, entregando ambos a `Application/ExactWebhook`.
+Entrada: `exactincoming/index.php`. O script lê `tipo` na query e o JSON do corpo HTTP. [`src/Application/ExactWebhook.php`](../src/Application/ExactWebhook.php) recebe esses dados e coordena o fluxo.
 
 O corpo usa `Event`, `Lead` e, quando presente, `Agendamento`. Os dados do lead incluem contatos, vendedor, pré-vendedor, links, etapas de qualificação e campos personalizados. Os tipos de conta aceitos são definidos nos mapeamentos e nos cenários de webhook.
 
@@ -58,3 +58,4 @@ As referências usam dados fictícios. O teste compara campos e tipos do JSON, s
 Consultar um registro antes de criá-lo não garante idempotência diante de eventos concorrentes. O tratamento de falhas de rede e respostas inválidas precisa ser considerado na operação. Não há política automática de repetição, que poderia duplicar alterações nos CRMs.
 
 O retorno HTTP da entrada não é um comprovante de sucesso de todas as operações externas. A validação em ambiente controlado deve conferir também os registros nos dois CRMs e os resultados de cada chamada.
+
